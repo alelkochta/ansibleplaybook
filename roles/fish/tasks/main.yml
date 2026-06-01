@@ -1,0 +1,6 @@
+---
+- name: install fish shell
+  become: true
+  package:
+    name: fish
+    state: present
