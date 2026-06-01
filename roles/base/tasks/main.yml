@@ -1,0 +1,6 @@
+- name: ensure base system is updated
+  become: true
+  ansible.builtin.dnf:
+    name: '*'
+    state: latest
+    update_cache: true
