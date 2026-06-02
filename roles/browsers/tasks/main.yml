@@ -1,0 +1,19 @@
+---
+- name: ensure dnf-plugins-core is present
+  become: true
+  package:
+    name: dnf-plugins-core
+    state: present
+
+- name: add brave repository
+  become: true
+  ansible.builtin.yum_repository:
+    name: brave-browser-rpm-stable
+    description: the brave browser official rpm repo
+    baseurl: https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+
+- name: install brave browser
+  become: true
+  package:
+    name: brave-browser
+    state: present
