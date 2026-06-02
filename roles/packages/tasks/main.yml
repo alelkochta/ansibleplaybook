@@ -1,0 +1,24 @@
+---
+- name: install spotify through flatpak
+  become: true
+  community.general.flatpak:
+    remote: flathub
+    name: com.spotify.Client
+
+- name: install xournal++ through flatpak
+  become: true
+  community.general.flatpak:
+    remote: flathub
+    name: com.github.xournalpp.xournalpp
+
+- name: install Moonlight through flatpak
+  become: true
+  community.general.flatpak:
+    remote: flathub
+    name: com.moonlight_stream.Moonlight
+
+- name: install VLC media player
+  become: true
+  package:
+    name: vlc
+    state: present
