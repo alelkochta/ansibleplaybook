@@ -34,3 +34,9 @@
   package:
     name: kde-connect
     state: present
+
+- name: install actual budget through flatpak
+  become: true
+  community.general.flatpak:
+    remote: flathub
+    name: com.actualbudget.actual
