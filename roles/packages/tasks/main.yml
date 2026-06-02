@@ -49,3 +49,24 @@
 
 - name: add copr repo for signal
   become: true
+  community.general.copr:
+    name: useidel/signal-desktop
+    state: enabled
+
+- name: install signal desktop
+  become: true
+  package:
+    name: signal-desktop
+    state: present
+
+- name: add copr repositories for joplin
+  become: true
+  community.general.copr:
+    name: taw/joplin
+    state: enabled
+
+- name: install joplin
+  become: true
+  package:
+    name: joplin
+    state: present
