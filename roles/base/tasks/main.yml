@@ -33,6 +33,7 @@
 - name: disable flathub filtering
   become: true
   ansible.builtin.command: flatpak remote-modify --no-filter flathub
+  changed_when: false # force changed to off since running command
 
 - name: Enable the RPM Fusion free and non free repositories
   become: true

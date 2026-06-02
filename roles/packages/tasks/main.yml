@@ -22,3 +22,9 @@
   package:
     name: vlc
     state: present
+
+- name: install Steam destktop
+  become: true
+  package:
+    name: steam
+    state: present
