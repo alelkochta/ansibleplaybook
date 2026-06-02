@@ -1,3 +1,3 @@
 .vscode
 .vagrant
-secrets/secret.yml
+secrets/secrets.yml
