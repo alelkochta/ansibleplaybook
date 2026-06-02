@@ -41,3 +41,13 @@
     state: present
     disable_gpg_check: true
   when: ansible_facts['distribution'] == 'Fedora'
+
+- name: create and set up main user account
+  become: true
+  ansible.builtin.user:
+    name: "{{ main_user.name }}"
+    comment: "{{ main_user.fullname }}"
+    shell: "{{ main_user.shell }}"
+    groups: "{{ main_user.groups }}"
+    append: true
+    create_home: true

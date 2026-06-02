@@ -1,0 +1,7 @@
+---
+main_user:
+  name: lexi
+  fullname: Alexandra El Kochta
+  shell: /usr/bin/fish
+  groups:
+    - wheel
