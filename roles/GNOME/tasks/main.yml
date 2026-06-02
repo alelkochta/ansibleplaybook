@@ -1,0 +1,8 @@
+---
+- name: install gnome shell extensions
+  become: true
+  package:
+    name:
+      - gnome-shell-extension-caffeine
+      - gnome-shell-extension-dash-to-dock
+    state: present

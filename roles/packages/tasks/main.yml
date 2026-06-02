@@ -28,3 +28,9 @@
   package:
     name: steam
     state: present
+
+- name: install kdeconnect
+  become: true
+  package:
+    name: kde-connect
+    state: present
