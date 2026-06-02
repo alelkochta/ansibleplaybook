@@ -40,3 +40,12 @@
   community.general.flatpak:
     remote: flathub
     name: com.actualbudget.actual
+
+- name: install libreoffice suite
+  become: true
+  package:
+    name: libreoffice
+    state: present
+
+- name: add copr repo for signal
+  become: true

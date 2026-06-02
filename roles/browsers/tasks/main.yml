@@ -1,10 +1,4 @@
 ---
-- name: ensure dnf-plugins-core is present
-  become: true
-  package:
-    name: dnf-plugins-core
-    state: present
-
 - name: add brave repository
   become: true
   ansible.builtin.yum_repository:

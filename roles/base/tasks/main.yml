@@ -12,6 +12,12 @@
     state: latest
     update_cache: true
 
+- name: ensure dnf-plugins-core is present
+  become: true
+  package:
+    name: dnf-plugins-core
+    state: present
+
 - name: ensure snap is burned off the face of the earth
   become: true
   package:
