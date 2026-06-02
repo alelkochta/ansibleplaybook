@@ -34,10 +34,12 @@
   become: true
   ansible.builtin.command: flatpak remote-modify --no-filter flathub
 
-- name: Enable the RPM Fusion repository
+- name: Enable the RPM Fusion free and non free repositories
   become: true
   ansible.builtin.dnf:
-    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
+    name:
+      - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
+      - " https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
     state: present
     disable_gpg_check: true
   when: ansible_facts['distribution'] == 'Fedora'
