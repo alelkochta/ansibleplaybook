@@ -1,7 +1,43 @@
 ---
+- name: Ensure "@Fedora Workstation" group is added
+  become: true
+  ansible.builtin.dnf:
+    name: "@Fedora Workstation"
+    state: present
+
 - name: ensure base system is updated
   become: true
   ansible.builtin.dnf:
-    name: '*'
+    name: "*"
     state: latest
     update_cache: true
+
+- name: ensure snap is burned off the face of the earth
+  become: true
+  package:
+    name: snapd
+    state: absent
+
+- name: install flatpak
+  become: true
+  package:
+    name: flatpak
+    state: present
+
+- name: Ensure flathub is present
+  become: true
+  ansible.builtin.flatpak_remote:
+    name: flathub
+    flatpakrepo_url: "https://dl.flathub.org/repo/flathub.flatpakrepo"
+
+- name: disable flathub filtering
+  become: true
+  ansible.builtin.command: flatpak remote-modify --no-filter flathub
+
+- name: Enable the RPM Fusion repository
+  become: true
+  ansible.builtin.dnf:
+    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
+    state: present
+    disable_gpg_check: true
+  when: ansible_facts['distribution'] == 'Fedora'
