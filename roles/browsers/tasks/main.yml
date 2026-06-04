@@ -4,7 +4,8 @@
   ansible.builtin.yum_repository:
     name: brave-browser-rpm-stable
     description: the brave browser official rpm repo
-    baseurl: https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+    baseurl: "https://brave-browser-rpm-release.s3.brave.com/x86_64/"
+    gpgkey: "https://brave-browser-rpm-release.s3.brave.com/brave-core.asc"
 
 - name: install brave browser
   become: true
