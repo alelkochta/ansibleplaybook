@@ -9,5 +9,5 @@
 
 - name: prefer dark theme
   community.general.dconf:
-    key: "/org/gnome/desktop/interface/color-scheme"
+    key: "/org/gnome/desktop/interface/color-scheme/"
     value: "prefer-dark"
