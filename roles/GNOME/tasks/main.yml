@@ -6,3 +6,8 @@
       - gnome-shell-extension-caffeine
       - gnome-shell-extension-dash-to-dock
     state: present
+
+- name: prefer dark theme
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/color-scheme"
+    value: "prefer-dark"
